@@ -1,0 +1,22 @@
+<html>
+<body>
+    <h3>Actual Weight Prediction</h3>
+<div>
+  <form action="/result" method="POST">
+    <label for="w_measured">Measured weights (kg):</label>
+    <input type="text" id="w_measured" name="w_measured">comma(,) separated
+    <br>
+    <label for="s_actual">Model standard deviation:</label>
+    <input type="text" id="s_actual" name="s_actual">
+    <br>
+    <label for="w_prior">Prior weight (kg):</label>
+    <input type="text" id="w_prior" name="w_prior">
+    <br>
+    <label for="s_prior">Prior standard devication:</label>
+    <input type="text" id="s_prior" name="s_prior">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</body>
+</html>
