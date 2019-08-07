@@ -13,7 +13,7 @@ def get_posteriori(w_prior, s_prior, w_actual, s_actual, w_measured_arr):
 def ValuePredictor(request_params):
     w_measured_arr = []
     for str in request_params['w_measured'].split(','):
-        w_measured_arr.append(float(str))
+        w_measured_arr.append(float(str.strip()))
     
     s_actual = float(request_params['s_actual'])
         

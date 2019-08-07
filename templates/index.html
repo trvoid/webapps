@@ -1,22 +1,55 @@
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Bayesian Weight Inference</title>
+</head>
 <body>
-    <h3>Actual Weight Prediction</h3>
-<div>
-  <form action="/result" method="POST">
-    <label for="w_measured">Measured weights (kg):</label>
-    <input type="text" id="w_measured" name="w_measured">comma(,) separated
-    <br>
-    <label for="s_actual">Model standard deviation:</label>
-    <input type="text" id="s_actual" name="s_actual">
-    <br>
-    <label for="w_prior">Prior weight (kg):</label>
-    <input type="text" id="w_prior" name="w_prior">
-    <br>
-    <label for="s_prior">Prior standard devication:</label>
-    <input type="text" id="s_prior" name="s_prior">
-    <br>
-    <input type="submit" value="Submit">
-  </form>
-</div>
+    <div class="container">
+        <h2>Actual Weight Inference</h2>
+
+        <form action="/result" method="POST">
+            <h4>Prior knowledge</h4>
+            <p> is what you know or belive about weight like the followings: 
+                <ol>
+                    <li>The probability distribution of new weight follows a normal distribution centered at the prior weight.
+                    <li>Not much changed from the prior weight.
+                </ol>
+            </p>
+            <div class="form-group">
+                <label for="w_prior">Prior weight:</label>
+                <input type="text" class="form-control" id="w_prior" name="w_prior">
+            </div>
+            <div class="form-group">
+                <label for="s_prior">Prior standard deviation:</label>
+                <input type="text" class="form-control" id="s_prior" aria-describedby="s_prior_help" name="s_prior">
+                <small id="s_prior_help" class="form-text text-muted">If you belive the weight has changed much, increase the value, or else decrease it.</small>
+            </div>
+            <h4>New evidence</h4>
+            <p>is the values you obtain by measuring weight.</p>
+            <div class="form-group">
+                <label for="w_measured">Measured weights:</label>
+                <input type="text" class="form-control" id="w_measured" aria-describedby="w_measured_help" name="w_measured">
+                <small id="w_measured_help" class="form-text text-muted">Comma(,) separated</small>
+            </div>
+            <h4>Model</h4>
+            <p>
+                defines how likely measured values can be produced given an actual weight.
+                Here we assume that the probability distribution of measured values is a normal distribution centered at the given actual weight.
+            </p>
+            <div class="form-group">
+                <label for="s_actual">Model standard deviation:</label>
+                <input type="text" class="form-control" id="s_actual" aria-describedby="s_actual_help" name="s_actual">
+                <small id="s_actual_help" class="form-text text-muted">If the measuring process is not stable or the scale is not accurate, increase the value, or else decrease it.</small>
+            </div>
+            <h4>Posterior knowledge</h4>
+            <p>is the updated weight by new measurements with your belief considered.</p>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
 </body>
 </html>
