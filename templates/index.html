@@ -18,27 +18,27 @@
                 <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h4>1. What you know</h4>
+                        <h4>1. What you believe</h4>
                     </div>
                     <div class="col">
                         <h4>2. New evidence</h4>
                     </div>
                     <div class="col">
-                        <h4>3. Update your knowledge</h4>
+                        <h4>3. Update your belief</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>Knowledge or belief about the weight of someone or something. For example, 
+                        <p>Your belief about the weight of someone or something which may not be based on the objective facts. For example, 
                             <ol>
-                                <li>The weight of the dog was 20 kg two weeks ago.
-                                <li>Not much changed from the prior weight according to her shape.
+                                <li>The weight of the dog was 20 kilograms two weeks ago.
+                                <li>It seems that the weight has not changed much from the prior weight according to her shape.
                             </ol>
                         </p>
                     </div>
                     <div class="col">
                         <p>
-                            The newly obtained values by measuring the weight. There could be deviations caused by
+                            The newly obtained values by measuring the weight. There could be deviations that are caused by the followings
                             <ol>
                                 <li>The scale is not precise.
                                 <li>The behavior of the dog on the scale is not stable.
@@ -46,7 +46,7 @@
                         </p>
                     </div>
                     <div class="col">
-                        <p>The updated weight by new measurements with your knowledge and belief considered.</p>
+                        <p>The updated weight by new measurements with your belief considered.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -54,22 +54,22 @@
                         <div class="form-group">
                             <label for="w_prior">Weight:</label>
                             <input type="text" class="form-control" id="w_prior" aria-describedby="w_prior_help" name="w_prior">
-                            <small id="w_prior_help" class="form-text text-muted">Any value what you belive is close to the actual weight.</small>
+                            <small id="w_prior_help" class="form-text text-muted">A value which you belive is close to the actual weight.</small>
                         </div>
                         <div class="form-group">
-                            <label for="s_prior">Standard deviation:</label>
+                            <label for="s_prior">Error size(+/-):</label>
                             <input type="text" class="form-control" id="s_prior" aria-describedby="s_prior_help" name="s_prior">
-                            <small id="s_prior_help" class="form-text text-muted">If you belive the weight has changed much, increase the value, or else decrease it.</small>
+                            <small id="s_prior_help" class="form-text text-muted">If you are more certain about the weight, decrease the value, or else increase it.</small>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="w_measured">Weights:</label>
                             <input type="text" class="form-control" id="w_measured" aria-describedby="w_measured_help" name="w_measured">
-                            <small id="w_measured_help" class="form-text text-muted">Comma(,) separated</small>
+                            <small id="w_measured_help" class="form-text text-muted">Measured values that are comma(,) separated</small>
                         </div>
                         <div class="form-group">
-                            <label for="s_actual">Standard deviation:</label>
+                            <label for="s_actual">Error size(+/-):</label>
                             <input type="text" class="form-control" id="s_actual" aria-describedby="s_actual_help" name="s_actual">
                             <small id="s_actual_help" class="form-text text-muted">If the measuring process is not stable or the scale is not accurate, increase the value, or else decrease it.</small>
                         </div>
