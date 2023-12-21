@@ -50,4 +50,9 @@ def result():
         result = ValuePredictor(request_params)
         prediction = f'{result:.1f}'
         
-        return flask.render_template("result.html", prediction = prediction)
+        return flask.render_template("index.html", 
+                                     w_prior=request_params['w_prior'], 
+                                     s_prior=request_params['s_prior'], 
+                                     w_measured=request_params['w_measured'], 
+                                     s_actual=request_params['s_actual'], 
+                                     prediction=prediction)
