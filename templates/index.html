@@ -4,83 +4,84 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <title>Bayesian Weight Inference</title>
     </head>
     <body>
-        <div class="container">
-            <h2>Actual Weight Inference</h2>
+        <div class="w3-container">
+            <h2><b>Bayesian Weight Inference</b></h2>
             
             <p>The background of this application is explained in <a href="https://trvoid.blogspot.com/2019/07/blog-post_77.html">Understanding Bayesian Inference Thoroughly</a>.</p>
 
             <form action="/result" method="POST">
-                <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h4>1. What you believe</h4>
-                    </div>
-                    <div class="col">
-                        <h4>2. New evidence</h4>
-                    </div>
-                    <div class="col">
-                        <h4>3. Update your belief</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p>Your belief about the weight of someone or something which may not be based on the objective facts. For example, 
-                            <ol>
-                                <li>The weight of the dog was 20 kilograms two weeks ago.
-                                <li>It seems that the weight has not changed much from the prior weight according to her shape.
-                            </ol>
-                        </p>
-                    </div>
-                    <div class="col">
-                        <p>
-                            The newly obtained values by measuring the weight. There could be deviations that are caused by the followings
-                            <ol>
-                                <li>The scale is not precise.
-                                <li>The behavior of the dog on the scale is not stable.
-                            </ol>
-                        </p>
-                    </div>
-                    <div class="col">
-                        <p>The updated weight by new measurements with your belief considered.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="w_prior">Weight:</label>
-                            <input type="text" class="form-control" id="w_prior" aria-describedby="w_prior_help" name="w_prior">
-                            <small id="w_prior_help" class="form-text text-muted">A value which you belive is close to the actual weight.<br>Ex) 20</small>
+                <div class="w3-container">
+                    <div class="w3-row w3-card w3-padding w3-margin">
+                        <div class="w3-col m6">
+                            <h4><b>1. What you believe</b></h4>
+                            <div class="w3-panel">
+                                <label for="w_prior"><b>Weight:</b></label>
+                                <input type="text" class="w3-input w3-border" id="w_prior" aria-describedby="w_prior_help" name="w_prior">
+                                <small id="w_prior_help" class="form-text text-muted">A value which you belive is close to the actual weight.<br>Ex) 20</small>
+                            </div>
+                            <div class="w3-panel">
+                                <label for="s_prior"><b>Error size:</b></label>
+                                <input type="text" class="w3-input w3-border" id="s_prior" aria-describedby="s_prior_help" name="s_prior">
+                                <small id="s_prior_help" class="form-text text-muted">If you are more certain about the weight, decrease the value, or else increase it.<br>Ex) 0.5</small>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="s_prior">Error size:</label>
-                            <input type="text" class="form-control" id="s_prior" aria-describedby="s_prior_help" name="s_prior">
-                            <small id="s_prior_help" class="form-text text-muted">If you are more certain about the weight, decrease the value, or else increase it.<br>Ex) 0.5</small>
+                        <div class="w3-col m6">
+                            <div class="w3-panel w3-pale-yellow w3-border w3-border-yellow w3-round w3-margin">
+                                <p>
+                                    Your belief about the weight of someone or something which may not be based on the objective facts. For example, 
+                                    <ol>
+                                        <li>The weight of the dog was 20 kilograms two weeks ago.
+                                        <li>It seems that the weight has not changed much from the prior weight according to her shape.
+                                    </ol>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="w_measured">Weights:</label>
-                            <input type="text" class="form-control" id="w_measured" aria-describedby="w_measured_help" name="w_measured">
-                            <small id="w_measured_help" class="form-text text-muted">Measured values that are comma(,) separated.<br>Ex) 19,22,24</small>
+                    <div class="w3-row w3-card w3-padding w3-margin">
+                        <div class="w3-col m6">
+                            <h4><b>2. New evidence</b></h4>
+                            <div class="w3-panel">
+                                <label for="w_measured"><b>Weight(s):</b></label>
+                                <input type="text" class="w3-input w3-border" id="w_measured" aria-describedby="w_measured_help" name="w_measured">
+                                <small id="w_measured_help" class="form-text text-muted">One or multiple measured value(s). Use comma(,) to separate multiple values.<br>Ex) 19,22,24</small>
+                            </div>
+                            <div class="w3-panel">
+                                <label for="s_actual"><b>Error size:</b></label>
+                                <input type="text" class="w3-input w3-border" id="s_actual" aria-describedby="s_actual_help" name="s_actual">
+                                <small id="s_actual_help" class="form-text text-muted">If the measuring process is not stable or the scale is not accurate, increase the value, or else decrease it.<br>Ex) 1.5</small>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="s_actual">Error size:</label>
-                            <input type="text" class="form-control" id="s_actual" aria-describedby="s_actual_help" name="s_actual">
-                            <small id="s_actual_help" class="form-text text-muted">If the measuring process is not stable or the scale is not accurate, increase the value, or else decrease it.<br>Ex) 1.5</small>
+                        <div class="w3-col m6">
+                            <div class="w3-panel w3-pale-yellow w3-border w3-border-yellow w3-round w3-margin">
+                                <p>
+                                    The newly obtained values by measuring the weight. There could be deviations that are caused by the followings
+                                    <ol>
+                                        <li>The scale is not precise.
+                                        <li>The behavior of the dog on the scale is not stable.
+                                    </ol>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="update_weight">Update weight:</label><br>
-                            <input type="submit" class="btn btn-primary" id="update_weight" value="Submit">
+                    <div class="w3-row w3-card w3-padding w3-margin">
+                        <div class="w3-col m6">
+                            <h4><b>3. Update your belief</b></h4>
+                            <div class="w3-panel">
+                                <label for="update_weight">Update weight:</label><br>
+                                <input type="submit" class="w3-btn w3-blue" id="update_weight" value="Submit">
+                            </div>
+                        </div>
+                        <div class="w3-col m6">
+                            <div class="w3-panel w3-pale-yellow w3-border w3-border-yellow w3-round w3-margin">
+                                <p>The updated weight by new measurements with your belief considered.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </form>
         </div>

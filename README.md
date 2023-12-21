@@ -15,4 +15,11 @@ $ export FLASK_APP=script
 $ flask run
 ```
 
-Then open `http://127.0.0.1:5000` in your browser.
+On Windows,
+
+```
+> set FLASK_APP=script
+> flask run
+```
+
+Then open `http://127.0.0.1:5000` in your browser and follow the guide on the page.
