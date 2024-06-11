@@ -6,8 +6,9 @@ app = flask.Flask(__name__)
 
 def get_posteriori(w_prior, s_prior, w_actual, s_actual, w_measured_arr):
     l_measured = stats.norm.pdf(w_measured_arr, w_actual, s_actual)
+    likelihood = np.prod(l_measured)
     weighting = stats.norm.pdf(w_actual, w_prior, s_prior)
-    posteriori = np.prod(l_measured * weighting)
+    posteriori = likelihood * weighting
     return posteriori
     
 def ValuePredictor(request_params):
